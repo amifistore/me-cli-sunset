@@ -241,5 +241,93 @@
         "overwrite_amount": 1000,
         "token_confirmation_idx": 1,
         "amount_idx": -1
+    },
+    {
+        "name": "60GB Setahun",
+        "price": "Rp0",
+        "detail": "Paket bundling kuota 60GB dengan masa aktif 365 hari.\nKuota dapat digunakan untuk semua aplikasi.\nSupported payment: Balance/pulsa.",
+        "packages": [
+            {
+                "family_name": "Bundling",
+                "family_code": "6bcc96f4-f196-4e8f-969f-e45a121d21bd",
+                "is_enterprise": false,
+                "migration_type": "NONE",
+                "variant_name": "Bundling",
+                "variant_code": "6bb231b1-c0f1-40a8-91ac-a97a34b3f268",
+                "option_name": "60GB Setahun",
+                "order": 1
+            }
+        ],
+        "payment_for": "BUY_PACKAGE",
+        "ask_overwrite": false,
+        "overwrite_amount": 0,
+        "token_confirmation_idx": 0,
+        "amount_idx": -1
+    },
+    {
+        "name": "45GB Setahun",
+        "price": "Rp0",
+        "detail": "Paket bundling kuota 45GB dengan masa aktif 365 hari.\nKuota dapat digunakan untuk semua aplikasi.\nSupported payment: Balance/pulsa.",
+        "packages": [
+            {
+                "family_name": "Bundling",
+                "family_code": "6bcc96f4-f196-4e8f-969f-e45a121d21bd",
+                "is_enterprise": false,
+                "migration_type": "NONE",
+                "variant_name": "Bundling",
+                "variant_code": "6bb231b1-c0f1-40a8-91ac-a97a34b3f268",
+                "option_name": "45GB Setahun",
+                "order": 2
+            }
+        ],
+        "payment_for": "BUY_PACKAGE",
+        "ask_overwrite": false,
+        "overwrite_amount": 0,
+        "token_confirmation_idx": 0,
+        "amount_idx": -1
+    },
+    {
+        "name": "36GB Setahun YouTube",
+        "price": "Rp0",
+        "detail": "Paket bundling kuota 36GB khusus YouTube dengan masa aktif 365 hari.\nKuota utama untuk YouTube dan kuota reguler untuk aplikasi lain.\nSupported payment: Balance/pulsa.",
+        "packages": [
+            {
+                "family_name": "Bundling",
+                "family_code": "6bcc96f4-f196-4e8f-969f-e45a121d21bd",
+                "is_enterprise": false,
+                "migration_type": "NONE",
+                "variant_name": "Bundling",
+                "variant_code": "6bb231b1-c0f1-40a8-91ac-a97a34b3f268",
+                "option_name": "36GB Setahun YouTube",
+                "order": 3
+            }
+        ],
+        "payment_for": "BUY_PACKAGE",
+        "ask_overwrite": false,
+        "overwrite_amount": 0,
+        "token_confirmation_idx": 0,
+        "amount_idx": -1
+    },
+    {
+        "name": "36GB Setahun",
+        "price": "Rp0",
+        "detail": "Paket bundling kuota 36GB dengan masa aktif 365 hari.\nKuota dapat digunakan untuk semua aplikasi.\nSupported payment: Balance/pulsa.",
+        "packages": [
+            {
+                "family_name": "Bundling",
+                "family_code": "6bcc96f4-f196-4e8f-969f-e45a121d21bd",
+                "is_enterprise": false,
+                "migration_type": "NONE",
+                "variant_name": "Bundling",
+                "variant_code": "6bb231b1-c0f1-40a8-91ac-a97a34b3f268",
+                "option_name": "36GB Setahun",
+                "order": 4
+            }
+        ],
+        "payment_for": "BUY_PACKAGE",
+        "ask_overwrite": false,
+        "overwrite_amount": 0,
+        "token_confirmation_idx": 0,
+        "amount_idx": -1
     }
 ]
