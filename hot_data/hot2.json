@@ -1,279 +1,619 @@
-[
-    {
-        "id": 1,
-        "name": "Masa Aktif 30 Hari",
-        "price": "Rp0",
-        "original_price": "Rp 8.897",
-        "discount": "100%",
-        "detail": "Membuat masa aktif menjadi 30 hari dari tanggal pembelian. Tidak bisa akumulasi.",
-        "payment_methods": ["Balance", "Pulsa"],
-        "badge": "GRATIS",
-        "packages": [
-            {
-                "family_name": "Akrab",
-                "family_code": "f4fd69c7-12a4-4047-a1f2-f4072a7c543e",
-                "is_enterprise": false,
-                "migration_type": "NONE",
-                "variant_name": "Akrab",
-                "variant_code": "555a091d-b1eb-43c2-925f-3da485fecf5f",
-                "option_name": "19GB for 2 Members",
-                "order": 17
-            },
-            {
-                "family_name": "",
-                "family_code": "b0a20d74-0c54-4e3b-8f3f-01e7482e50bf",
-                "is_enterprise": true,
-                "migration_type": "NONE",
-                "variant_code": "719d093f-6f8d-46a4-8390-6a0003a172ea",
-                "option_name": "",
-                "order": 1
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DataPack - Paket Internet Modern</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
+
+        :root {
+            --primary: #6366f1;
+            --primary-dark: #4f46e5;
+            --primary-light: #8b5cf6;
+            --secondary: #06d6a0;
+            --accent: #f59e0b;
+            --danger: #ef4444;
+            --success: #10b981;
+            --dark: #1e293b;
+            --darker: #0f172a;
+            --light: #f8fafc;
+            --gray: #64748b;
+            --glass: rgba(255, 255, 255, 0.1);
+            --glass-border: rgba(255, 255, 255, 0.2);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+            color: var(--light);
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        /* Header Styles */
+        .header {
+            text-align: center;
+            margin-bottom: 50px;
+            padding: 40px 20px;
+        }
+
+        .logo {
+            font-size: 3rem;
+            margin-bottom: 15px;
+            background: linear-gradient(135deg, var(--secondary), var(--primary-light));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 800;
+        }
+
+        .header h1 {
+            font-size: 3.5rem;
+            margin-bottom: 15px;
+            font-weight: 800;
+            background: linear-gradient(135deg, #fff, #e2e8f0);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .header p {
+            font-size: 1.3rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        /* Stats Section */
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .stat-card {
+            background: var(--glass);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            padding: 25px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--secondary), var(--primary-light));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 5px;
+        }
+
+        .stat-label {
+            color: var(--gray);
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        /* Filters */
+        .filters-container {
+            background: var(--glass);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            padding: 25px;
+            margin-bottom: 40px;
+        }
+
+        .filters {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .filter-btn {
+            padding: 12px 25px;
+            border: 2px solid var(--glass-border);
+            border-radius: 15px;
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--light);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .filter-btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .filter-btn.active {
+            background: var(--primary);
+            border-color: var(--primary);
+            box-shadow: 0 10px 30px rgba(99, 102, 241, 0.3);
+        }
+
+        /* Packages Grid */
+        .packages-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+
+        .package-card {
+            background: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0.05));
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: 25px;
+            padding: 30px;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .package-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 100%;
+            background: linear-gradient(135deg, var(--primary), transparent);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            z-index: -1;
+        }
+
+        .package-card:hover::before {
+            opacity: 0.1;
+        }
+
+        .package-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--primary-light);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 20px;
+        }
+
+        .package-name {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: white;
+            flex: 1;
+        }
+
+        .badge {
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            margin-left: 15px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .badge.gratis { background: var(--success); color: white; }
+        .badge.refund { background: var(--accent); color: white; }
+        .badge.hot { background: linear-gradient(135deg, #ff6b6b, #ee5a24); color: white; }
+        .badge.popular { background: linear-gradient(135deg, var(--primary), var(--primary-light)); color: white; }
+        .badge.hemat { background: linear-gradient(135deg, #8b5cf6, #7c3aed); color: white; }
+        .badge.mini { background: var(--gray); color: white; }
+        .badge.education { background: linear-gradient(135deg, #06b6d4, #0891b2); color: white; }
+        .badge.food { background: linear-gradient(135deg, #f97316, #ea580c); color: white; }
+
+        .price-section {
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .current-price {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: white;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .original-price {
+            font-size: 1.2rem;
+            color: var(--gray);
+            text-decoration: line-through;
+        }
+
+        .discount {
+            background: var(--danger);
+            color: white;
+            padding: 5px 12px;
+            border-radius: 15px;
+            font-size: 0.9rem;
+            font-weight: 700;
+        }
+
+        .package-detail {
+            color: #cbd5e1;
+            line-height: 1.6;
+            margin-bottom: 20px;
+            font-size: 1rem;
+        }
+
+        .features {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 25px;
+        }
+
+        .feature-tag {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 8px 15px;
+            border-radius: 15px;
+            font-size: 0.85rem;
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .card-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 25px;
+        }
+
+        .payment-methods {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .payment-label {
+            font-size: 0.9rem;
+            color: var(--gray);
+        }
+
+        .payment-icons {
+            display: flex;
+            gap: 8px;
+        }
+
+        .payment-icon {
+            width: 32px;
+            height: 32px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            font-weight: 700;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .payment-icon:hover {
+            background: var(--primary);
+            transform: scale(1.1);
+        }
+
+        .buy-btn {
+            padding: 15px 30px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: white;
+            border: none;
+            border-radius: 15px;
+            font-size: 1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 10px 30px rgba(99, 102, 241, 0.3);
+        }
+
+        .buy-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(99, 102, 241, 0.4);
+        }
+
+        .buy-btn.gratis {
+            background: linear-gradient(135deg, var(--success), #059669);
+        }
+
+        .buy-btn.gratis:hover {
+            box-shadow: 0 15px 40px rgba(16, 185, 129, 0.4);
+        }
+
+        /* Floating Elements */
+        .floating {
+            position: fixed;
+            z-index: -1;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary-light), transparent);
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .floating:nth-child(1) {
+            width: 200px;
+            height: 200px;
+            top: 10%;
+            left: 5%;
+            animation-delay: 0s;
+        }
+
+        .floating:nth-child(2) {
+            width: 150px;
+            height: 150px;
+            top: 60%;
+            right: 10%;
+            animation-delay: 2s;
+        }
+
+        .floating:nth-child(3) {
+            width: 100px;
+            height: 100px;
+            bottom: 20%;
+            left: 15%;
+            animation-delay: 4s;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(180deg); }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .packages-grid {
+                grid-template-columns: 1fr;
             }
-        ],
-        "payment_for": "BUY_PACKAGE",
-        "ask_overwrite": false,
-        "overwrite_amount": 889750,
-        "token_confirmation_idx": 0,
-        "amount_idx": -1
-    },
-    {
-        "id": 2,
-        "name": "Masa Aktif 30 Hari",
-        "price": "Rp 1.000",
-        "original_price": "Rp 8.897",
-        "discount": "89%",
-        "detail": "Membuat masa aktif menjadi 30 hari dari tanggal pembelian. Tidak bisa akumulasi. Saldo akan di-refund setelah 10-30 menit.",
-        "payment_methods": ["E-wallet", "QRIS"],
-        "badge": "REFUND",
-        "packages": [
-            {
-                "family_name": "Akrab",
-                "family_code": "f4fd69c7-12a4-4047-a1f2-f4072a7c543e",
-                "is_enterprise": false,
-                "migration_type": "NONE",
-                "variant_name": "Akrab",
-                "variant_code": "555a091d-b1eb-43c2-925f-3da485fecf5f",
-                "option_name": "19GB for 2 Members",
-                "order": 17
-            },
-            {
-                "family_name": "",
-                "family_code": "580c1f94-7dc4-416e-96f6-8faf26567516",
-                "is_enterprise": false,
-                "migration_type": "NONE",
-                "variant_name": "",
-                "variant_code": "b50f954a-696e-46d0-8700-8e4d38521525",
-                "option_name": "",
-                "order": 27
+            
+            .header h1 {
+                font-size: 2.5rem;
             }
-        ],
-        "payment_for": "BUY_PACKAGE",
-        "ask_overwrite": false,
-        "overwrite_amount": 1000,
-        "token_confirmation_idx": 0,
-        "amount_idx": -1
-    },
-    {
-        "id": 3,
-        "name": "Pros Champion 20GB + Unlimited",
-        "price": "Rp 40.000",
-        "detail": "Unlimited WA & Spotify. Langkah pertama di bulan tidak diambil oleh orang yang ragu. #RagumuRugimu",
-        "payment_methods": ["E-wallet", "QRIS"],
-        "badge": "HOT",
-        "features": ["20GB", "Unlimited WA", "Unlimited Spotify"],
-        "packages": [
-            {
-                "family_name": "Xtra Combo Flex",
-                "family_code": "3c71892a-852c-4a0f-8cb5-9cf731e26508",
-                "is_enterprise": false,
-                "migration_type": "NONE",
-                "variant_code": "e7720acc-4ea3-4c68-9e6b-a181495b21df",
-                "option_name": "Pros Champion 20GB",
-                "order": 111
-            },
-            {
-                "family_name": "QRIS D 0",
-                "family_code": "c6f2cd72-8b21-420a-b8d5-e0186afe5be6",
-                "is_enterprise": true,
-                "migration_type": "NONE",
-                "variant_code": "b7cf278e-c989-4760-8a26-0a20c1a47a40",
-                "option_name": "QRIS D 0",
-                "order": 11
+            
+            .logo {
+                font-size: 2.5rem;
             }
-        ],
-        "payment_for": "SHARE_PACKAGE",
-        "ask_overwrite": false,
-        "overwrite_amount": 40000,
-        "token_confirmation_idx": 1,
-        "amount_idx": -1
-    },
-    {
-        "id": 4,
-        "name": "Udemy 15GB",
-        "price": "Rp 7.500",
-        "detail": "Membuat belajarmu lebih asyik dengan kuota khusus Udemy.",
-        "payment_methods": ["E-wallet", "QRIS"],
-        "badge": "EDUCATION",
-        "features": ["15GB", "Khusus Udemy"],
-        "packages": [
-            {
-                "family_name": "Bonus myRewards",
-                "family_code": "07461ed8-8a81-4d89-a8f2-4dd0271efdde",
-                "is_enterprise": false,
-                "migration_type": "NONE",
-                "variant_code": "b41e2af1-811d-41db-8fc9-ccf8bbede05a",
-                "option_name": "Udemy 15GB",
-                "order": 18
-            },
-            {
-                "family_name": "QRIS D 0",
-                "family_code": "c6f2cd72-8b21-420a-b8d5-e0186afe5be6",
-                "is_enterprise": true,
-                "migration_type": "NONE",
-                "variant_code": "b7cf278e-c989-4760-8a26-0a20c1a47a40",
-                "option_name": "QRIS D 0",
-                "order": 11
+            
+            .card-footer {
+                flex-direction: column;
+                gap: 15px;
+                align-items: stretch;
             }
-        ],
-        "payment_for": "SHARE_PACKAGE",
-        "ask_overwrite": false,
-        "overwrite_amount": 7500,
-        "token_confirmation_idx": 1,
-        "amount_idx": -1
-    },
-    {
-        "id": 5,
-        "name": "Shopeefood 12GB + Unlimited",
-        "price": "Rp 55.000",
-        "detail": "Unlimited WA & Shopee. Tembok China tidak dibangun oleh orang yang ragu. #RagumuRugimu",
-        "payment_methods": ["E-wallet", "QRIS"],
-        "badge": "FOOD",
-        "features": ["12GB", "Unlimited WA", "Unlimited Shopee"],
-        "packages": [
-            {
-                "family_name": "ShopeeFood Packages",
-                "family_code": "11adf9c8-7003-447c-98e4-353d33a216b3",
-                "is_enterprise": true,
-                "migration_type": "NONE",
-                "variant_code": "6991704b-5d65-4d5d-ac89-3b0a449a7aa1",
-                "option_name": "Shopeefood 12GB",
-                "order": 2
-            },
-            {
-                "family_name": "QRIS D 0",
-                "family_code": "c6f2cd72-8b21-420a-b8d5-e0186afe5be6",
-                "is_enterprise": true,
-                "migration_type": "NONE",
-                "variant_code": "b7cf278e-c989-4760-8a26-0a20c1a47a40",
-                "option_name": "QRIS D 0",
-                "order": 11
+            
+            .payment-methods {
+                justify-content: center;
             }
-        ],
-        "payment_for": "SHARE_PACKAGE",
-        "ask_overwrite": false,
-        "overwrite_amount": 55000,
-        "token_confirmation_idx": 1,
-        "amount_idx": -1
-    },
-    {
-        "id": 6,
-        "name": "Xtra Combo Flex XS",
-        "price": "Rp 15.000",
-        "detail": "Konstantinopel tidak ditaklukan oleh orang yang ragu. #RagumuRugimu",
-        "payment_methods": ["E-wallet", "QRIS"],
-        "badge": "POPULAR",
-        "features": ["Flexible", "Multi-purpose"],
-        "packages": [
-            {
-                "family_name": "Xtra Combo Flex - test",
-                "family_code": "f59b6f2b-4d77-4443-8361-3b1d3377f09e",
-                "is_enterprise": false,
-                "migration_type": "NONE",
-                "variant_code": "c1a05696-8360-47ce-a915-34a5a1093929",
-                "option_name": "Xtra Combo Flex XS",
-                "order": 35
-            },
-            {
-                "family_name": "QRIS D 0",
-                "family_code": "c6f2cd72-8b21-420a-b8d5-e0186afe5be6",
-                "is_enterprise": true,
-                "migration_type": "NONE",
-                "variant_code": "b7cf278e-c989-4760-8a26-0a20c1a47a40",
-                "option_name": "QRIS D 0",
-                "order": 11
+        }
+
+        /* Loading Animation */
+        .loading {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid rgba(255,255,255,.3);
+            border-radius: 50%;
+            border-top-color: #fff;
+            animation: spin 1s ease-in-out infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <!-- Floating Background Elements -->
+    <div class="floating"></div>
+    <div class="floating"></div>
+    <div class="floating"></div>
+
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <div class="logo">📱 DataPack</div>
+            <h1>Paket Internet Premium</h1>
+            <p>Nikmati pengalaman internet terbaik dengan paket data yang sesuai kebutuhan Anda. Cepat, stabil, dan harga terjangkau.</p>
+        </div>
+
+        <!-- Stats -->
+        <div class="stats">
+            <div class="stat-card">
+                <div class="stat-number">8+</div>
+                <div class="stat-label">Paket Tersedia</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">50K+</div>
+                <div class="stat-label">Pengguna Aktif</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">24/7</div>
+                <div class="stat-label">Dukungan Pelanggan</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">99%</div>
+                <div class="stat-label">Kepuasan Pelanggan</div>
+            </div>
+        </div>
+
+        <!-- Filters -->
+        <div class="filters-container">
+            <div class="filters">
+                <button class="filter-btn active" data-filter="all">
+                    <i class="fas fa-layer-group"></i> Semua Paket
+                </button>
+                <button class="filter-btn" data-filter="gratis">
+                    <i class="fas fa-gift"></i> Gratis
+                </button>
+                <button class="filter-btn" data-filter="hemat">
+                    <i class="fas fa-piggy-bank"></i> Hemat
+                </button>
+                <button class="filter-btn" data-filter="hot">
+                    <i class="fas fa-fire"></i> Terpopuler
+                </button>
+                <button class="filter-btn" data-filter="education">
+                    <i class="fas fa-graduation-cap"></i> Edukasi
+                </button>
+                <button class="filter-btn" data-filter="popular">
+                    <i class="fas fa-star"></i> Recommended
+                </button>
+            </div>
+        </div>
+
+        <!-- Packages Grid -->
+        <div class="packages-grid" id="packagesContainer">
+            <!-- Packages will be rendered here by JavaScript -->
+        </div>
+    </div>
+
+    <script>
+        // Data packages dari JSON yang sudah diperbaiki
+        const packagesData = [ /* Masukkan JSON yang sudah diperbaiki di sini */ ];
+
+        function renderPackages(filter = 'all') {
+            const container = document.getElementById('packagesContainer');
+            const filteredPackages = filter === 'all' 
+                ? packagesData 
+                : packagesData.filter(pkg => pkg.badge.toLowerCase() === filter);
+
+            if (filteredPackages.length === 0) {
+                container.innerHTML = `
+                    <div style="grid-column: 1/-1; text-align: center; padding: 60px; background: var(--glass); border-radius: 25px; border: 1px solid var(--glass-border);">
+                        <i class="fas fa-search" style="font-size: 3rem; margin-bottom: 20px; opacity: 0.5;"></i>
+                        <h3 style="color: white; margin-bottom: 10px;">Tidak ada paket ditemukan</h3>
+                        <p style="color: var(--gray);">Coba filter lain untuk melihat paket yang tersedia</p>
+                    </div>
+                `;
+                return;
             }
-        ],
-        "payment_for": "SHARE_PACKAGE",
-        "ask_overwrite": false,
-        "overwrite_amount": 15000,
-        "token_confirmation_idx": 1,
-        "amount_idx": -1
-    },
-    {
-        "id": 7,
-        "name": "BPA S 1.2K",
-        "price": "Rp 1.200",
-        "detail": "Paket data hemat dengan kuota tambahan.",
-        "payment_methods": ["E-wallet", "QRIS"],
-        "badge": "HEMAT",
-        "features": ["1.2GB", "Bonus Kuota"],
-        "packages": [
-            {
-                "family_name": "Akrab",
-                "family_code": "6a838c0b-8f01-42e4-847c-2c0715ca248d",
-                "is_enterprise": false,
-                "migration_type": "PRIOH_TO_PRIO",
-                "variant_code": "df7e6687-ee39-472b-9823-afe0e67a5ac3",
-                "option_name": "Akrab",
-                "order": 31
-            },
-            {
-                "family_name": "Night Quota",
-                "family_code": "64e63f53-6889-4d12-a0b4-ef9ea77b9efc",
-                "is_enterprise": false,
-                "migration_type": "NONE",
-                "variant_code": "7a0c3e7e-d5b7-480a-b161-50301a9dcdfd",
-                "option_name": "EWALLET 1.2k",
-                "order": 1
-            }
-        ],
-        "payment_for": "SHARE_PACKAGE",
-        "ask_overwrite": false,
-        "overwrite_amount": 1200,
-        "token_confirmation_idx": 1,
-        "amount_idx": -1
-    },
-    {
-        "id": 8,
-        "name": "BPA S 1K",
-        "price": "Rp 1.000",
-        "detail": "Paket data paling hemat untuk kebutuhan dasar.",
-        "payment_methods": ["E-wallet", "QRIS"],
-        "badge": "MINI",
-        "features": ["1GB", "Basic Quota"],
-        "packages": [
-            {
-                "family_name": "Akrab",
-                "family_code": "6a838c0b-8f01-42e4-847c-2c0715ca248d",
-                "is_enterprise": false,
-                "migration_type": "PRIOH_TO_PRIO",
-                "variant_code": "df7e6687-ee39-472b-9823-afe0e67a5ac3",
-                "option_name": "Akrab",
-                "order": 31
-            },
-            {
-                "family_name": "Apps Quota Xtra Combo Plus 2GB",
-                "family_code": "580c1f94-7dc4-416e-96f6-8faf26567516",
-                "is_enterprise": false,
-                "migration_type": "NONE",
-                "variant_code": "b50f954a-696e-46d0-8700-8e4d38521525",
-                "option_name": "EWALLET & QRIS 1K",
-                "order": 24
-            }
-        ],
-        "payment_for": "SHARE_PACKAGE",
-        "ask_overwrite": false,
-        "overwrite_amount": 1000,
-        "token_confirmation_idx": 1,
-        "amount_idx": -1
-    }
-]
+
+            container.innerHTML = filteredPackages.map(pkg => `
+                <div class="package-card" data-category="${pkg.badge.toLowerCase()}">
+                    <div class="card-header">
+                        <div class="package-name">${pkg.name}</div>
+                        <div class="badge ${pkg.badge.toLowerCase()}">
+                            <i class="fas fa-${getBadgeIcon(pkg.badge)}"></i> ${pkg.badge}
+                        </div>
+                    </div>
+                    
+                    <div class="price-section">
+                        <span class="current-price">${pkg.price}</span>
+                        ${pkg.original_price ? `<span class="original-price">${pkg.original_price}</span>` : ''}
+                        ${pkg.discount ? `<span class="discount">${pkg.discount} OFF</span>` : ''}
+                    </div>
+                    
+                    <p class="package-detail">${pkg.detail}</p>
+                    
+                    ${pkg.features ? `
+                        <div class="features">
+                            ${pkg.features.map(feature => `
+                                <span class="feature-tag">
+                                    <i class="fas fa-check"></i> ${feature}
+                                </span>
+                            `).join('')}
+                        </div>
+                    ` : ''}
+                    
+                    <div class="card-footer">
+                        <div class="payment-methods">
+                            <span class="payment-label">Bayar dengan:</span>
+                            <div class="payment-icons">
+                                ${pkg.payment_methods.map(method => `
+                                    <div class="payment-icon" title="${method}">
+                                        ${getPaymentIcon(method)}
+                                    </div>
+                                `).join('')}
+                            </div>
+                        </div>
+                        
+                        <button class="buy-btn ${pkg.price === 'Rp0' ? 'gratis' : ''}" onclick="buyPackage(${pkg.id})">
+                            ${pkg.price === 'Rp0' ? '<i class="fas fa-gift"></i> DAPATKAN GRATIS' : `<i class="fas fa-bolt"></i> BELI SEKARANG`}
+                        </button>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function getBadgeIcon(badge) {
+            const icons = {
+                'GRATIS': 'gift',
+                'REFUND': 'undo',
+                'HOT': 'fire',
+                'POPULAR': 'star',
+                'HEMAT': 'piggy-bank',
+                'MINI': 'compact-disc',
+                'EDUCATION': 'graduation-cap',
+                'FOOD': 'utensils'
+            };
+            return icons[badge] || 'tag';
+        }
+
+        function getPaymentIcon(method) {
+            const icons = {
+                'Balance': 'B',
+                'Pulsa': 'P',
+                'E-wallet': 'E',
+                'QRIS': 'Q'
+            };
+            return icons[method] || method.charAt(0);
+        }
+
+        function buyPackage(id) {
+            // Simulasi proses pembelian
+            const btn = event.target;
+            const originalText = btn.innerHTML;
+            btn.innerHTML = '<div class="loading"></div> Memproses...';
+            btn.disabled = true;
+            
+            setTimeout(() => {
+                btn.innerHTML = originalText;
+                btn.disabled = false;
+                alert('Paket berhasil dipesan! Silakan check email untuk konfirmasi.');
+            }, 2000);
+        }
+
+        // Initialize filters
+        document.querySelectorAll('.filter-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+                renderPackages(this.dataset.filter);
+            });
+        });
+
+        // Initial render
+        renderPackages();
+    </script>
+</body>
+</html>
