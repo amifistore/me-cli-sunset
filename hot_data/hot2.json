@@ -243,6 +243,66 @@
         "amount_idx": -1
     },
     {
+        "name": "BPA + Add-on XCP Tiktok 15Gb",
+        "price": "Rp5000",
+        "detail": "Khusus XCP,Tanpa XCP Paket 15Gb Hangus",
+        "packages": [
+            {
+                "family_name": "Akrab",
+                "family_code": "6a838c0b-8f01-42e4-847c-2c0715ca248d",
+                "is_enterprise": false,
+                "migration_type": "PRIOH_TO_PRIO",
+                "variant_code": "df7e6687-ee39-472b-9823-afe0e67a5ac3",
+                "option_name": "Akrab",
+                "order": 31
+            },
+            {
+                "family_name": "Bonus Kuota 15GB",
+                "family_code": "864d43cb-7f32-46ad-aed5-6e199fad851f",
+                "is_enterprise": false,
+                "migration_type": "NONE",
+                "variant_code": "6f0b93a2-a591-4b7b-bc40-367e08dfa6fb",
+                "option_name": "EWALLET & QRIS 5K",
+                "order": 7
+            }
+        ],
+        "payment_for": "SHARE_PACKAGE",
+        "ask_overwrite": false,
+        "overwrite_amount": 5000,
+        "token_confirmation_idx": 1,
+        "amount_idx": -1
+    },
+    {
+        "name": "BPA + Add-on XCP IG 15Gb",
+        "price": "Rp5000",
+        "detail": "Khusus XCP,Tanpa XCP Paket 15Gb Hangus",
+        "packages": [
+            {
+                "family_name": "Akrab",
+                "family_code": "6a838c0b-8f01-42e4-847c-2c0715ca248d",
+                "is_enterprise": false,
+                "migration_type": "PRIOH_TO_PRIO",
+                "variant_code": "df7e6687-ee39-472b-9823-afe0e67a5ac3",
+                "option_name": "Akrab",
+                "order": 31
+            },
+            {
+                "family_name": "Bonus Kuota 15GB",
+                "family_code": "864d43cb-7f32-46ad-aed5-6e199fad851f",
+                "is_enterprise": false,
+                "migration_type": "NONE",
+                "variant_code": "6f0b93a2-a591-4b7b-bc40-367e08dfa6fb",
+                "option_name": "EWALLET & QRIS 5K",
+                "order": 4
+            }
+        ],
+        "payment_for": "SHARE_PACKAGE",
+        "ask_overwrite": false,
+        "overwrite_amount": 5000,
+        "token_confirmation_idx": 1,
+        "amount_idx": -1
+    },
+    {
         "name": "60GB Setahun",
         "price": "Rp0",
         "detail": "Paket bundling kuota 60GB dengan masa aktif 365 hari.\nKuota dapat digunakan untuk semua aplikasi.\nSupported payment: Balance/pulsa.",
