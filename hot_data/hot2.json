@@ -451,5 +451,98 @@
         "overwrite_amount": 26000,
         "token_confirmation_idx": 1,
         "amount_idx": -1
+    },
+    {
+        "name": "Conference 2GB",
+        "price": "Rp2000",
+        "detail": "Paket kuota khusus untuk conference dan meeting online.\nMendukung aplikasi meeting seperti Zoom, Google Meet, Teams.\nSupported payment: E-wallet & QRIS.",
+        "packages": [
+            {
+                "family_name": "Conference",
+                "family_code": "5dab52d5-6f02-4678-b72f-088396ceb113",
+                "is_enterprise": false,
+                "migration_type": "NONE",
+                "variant_name": "Conference",
+                "variant_code": "bf84ad5b-87e9-4769-9bd2-2359535c05e4",
+                "option_name": "Conference 2GB",
+                "order": 1
+            },
+            {
+                "family_name": "QRIS D 0",
+                "family_code": "c6f2cd72-8b21-420a-b8d5-e0186afe5be6",
+                "is_enterprise": true,
+                "migration_type": "NONE",
+                "variant_code": "b7cf278e-c989-4760-8a26-0a20c1a47a40",
+                "option_name": "QRIS D 0",
+                "order": 11
+            }
+        ],
+        "payment_for": "SHARE_PACKAGE",
+        "ask_overwrite": false,
+        "overwrite_amount": 2000,
+        "token_confirmation_idx": 1,
+        "amount_idx": -1
+    },
+    {
+        "name": "Conference 5GB",
+        "price": "Rp4000",
+        "detail": "Paket kuota conference dengan kapasitas menengah.\nIdeal untuk meeting harian dan video conference.\nSupported payment: E-wallet & QRIS.",
+        "packages": [
+            {
+                "family_name": "Conference",
+                "family_code": "5dab52d5-6f02-4678-b72f-088396ceb113",
+                "is_enterprise": false,
+                "migration_type": "NONE",
+                "variant_name": "Conference",
+                "variant_code": "bf84ad5b-87e9-4769-9bd2-2359535c05e4",
+                "option_name": "Conference 5GB",
+                "order": 2
+            },
+            {
+                "family_name": "QRIS D 0",
+                "family_code": "c6f2cd72-8b21-420a-b8d5-e0186afe5be6",
+                "is_enterprise": true,
+                "migration_type": "NONE",
+                "variant_code": "b7cf278e-c989-4760-8a26-0a20c1a47a40",
+                "option_name": "QRIS D 0",
+                "order": 11
+            }
+        ],
+        "payment_for": "SHARE_PACKAGE",
+        "ask_overwrite": false,
+        "overwrite_amount": 4000,
+        "token_confirmation_idx": 1,
+        "amount_idx": -1
+    },
+    {
+        "name": "Conference 15GB",
+        "price": "Rp10000",
+        "detail": "Paket kuota conference dengan kapasitas besar.\nCocok untuk intensive meeting dan webinar.\nSupported payment: E-wallet & QRIS.",
+        "packages": [
+            {
+                "family_name": "Conference",
+                "family_code": "5dab52d5-6f02-4678-b72f-088396ceb113",
+                "is_enterprise": false,
+                "migration_type": "NONE",
+                "variant_name": "Conference",
+                "variant_code": "bf84ad5b-87e9-4769-9bd2-2359535c05e4",
+                "option_name": "Conference 15GB",
+                "order": 3
+            },
+            {
+                "family_name": "QRIS D 0",
+                "family_code": "c6f2cd72-8b21-420a-b8d5-e0186afe5be6",
+                "is_enterprise": true,
+                "migration_type": "NONE",
+                "variant_code": "b7cf278e-c989-4760-8a26-0a20c1a47a40",
+                "option_name": "QRIS D 0",
+                "order": 11
+            }
+        ],
+        "payment_for": "SHARE_PACKAGE",
+        "ask_overwrite": false,
+        "overwrite_amount": 10000,
+        "token_confirmation_idx": 1,
+        "amount_idx": -1
     }
 ]
