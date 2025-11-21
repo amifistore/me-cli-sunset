@@ -389,5 +389,67 @@
         "overwrite_amount": 0,
         "token_confirmation_idx": 0,
         "amount_idx": -1
+    },
+    {
+        "name": "Shopeefood 21GB",
+        "price": "Rp80000",
+        "detail": "Paket kuota khusus ShopeeFood dengan kuota besar 21GB.\nDapatkan pengalaman berbelanja makanan yang lebih lancar.\nSupported payment: E-wallet & QRIS.",
+        "packages": [
+            {
+                "family_name": "ShopeeFood Packages",
+                "family_code": "11adf9c8-7003-447c-98e4-353d33a216b3",
+                "is_enterprise": true,
+                "migration_type": "NONE",
+                "variant_name": "ShopeeFood Packages",
+                "variant_code": "6991704b-5d65-4d5d-ac89-3b0a449a7aa1",
+                "option_name": "Shopeefood 21GB",
+                "order": 1
+            },
+            {
+                "family_name": "QRIS D 0",
+                "family_code": "c6f2cd72-8b21-420a-b8d5-e0186afe5be6",
+                "is_enterprise": true,
+                "migration_type": "NONE",
+                "variant_code": "b7cf278e-c989-4760-8a26-0a20c1a47a40",
+                "option_name": "QRIS D 0",
+                "order": 11
+            }
+        ],
+        "payment_for": "SHARE_PACKAGE",
+        "ask_overwrite": false,
+        "overwrite_amount": 80000,
+        "token_confirmation_idx": 1,
+        "amount_idx": -1
+    },
+    {
+        "name": "Shopeefood 5GB",
+        "price": "Rp26000",
+        "detail": "Paket kuota khusus ShopeeFood dengan kuota 5GB.\nCocok untuk penggunaan harian berbelanja makanan online.\nSupported payment: E-wallet & QRIS.",
+        "packages": [
+            {
+                "family_name": "ShopeeFood Packages",
+                "family_code": "11adf9c8-7003-447c-98e4-353d33a216b3",
+                "is_enterprise": true,
+                "migration_type": "NONE",
+                "variant_name": "ShopeeFood Packages",
+                "variant_code": "6991704b-5d65-4d5d-ac89-3b0a449a7aa1",
+                "option_name": "Shopeefood 5GB",
+                "order": 3
+            },
+            {
+                "family_name": "QRIS D 0",
+                "family_code": "c6f2cd72-8b21-420a-b8d5-e0186afe5be6",
+                "is_enterprise": true,
+                "migration_type": "NONE",
+                "variant_code": "b7cf278e-c989-4760-8a26-0a20c1a47a40",
+                "option_name": "QRIS D 0",
+                "order": 11
+            }
+        ],
+        "payment_for": "SHARE_PACKAGE",
+        "ask_overwrite": false,
+        "overwrite_amount": 26000,
+        "token_confirmation_idx": 1,
+        "amount_idx": -1
     }
 ]
